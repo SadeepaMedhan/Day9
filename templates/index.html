@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Customer Details</title>
+</head>
+
+<body>
+	<h2>Customer Details</h2>
+	<form method="POST" action="/create_customer">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required><br><br>
+
+		<label for="address">Address:</label>
+		<textarea id="address" name="address" required></textarea><br><br>
+
+		<input type="submit" value="Save">
+		<input type="button" value="Update">
+		<input type="button" value="Delete">
+	</form>
+
+	<br><br>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for customer in customers %}
+			<tr>
+				<td>{{ customer[0] }}</td>
+				<td>{{ customer[1] }}</td>
+				<td>{{ customer[2] }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+
+</html>
